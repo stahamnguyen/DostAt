@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		Ai7Kolz0zIbvVkFQnXIJF+N0FQY=
+		t1mLGrnhL0znpK0nVKQvBRK44AU=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		fSNXofbM9ZUdM37NQiDP6ivi7jA=
+		08mcVwrk+cz6v/bkh3Et7gRjSxo=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<data>
@@ -55,7 +55,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		uwcBcIMEnywbSAE9qXL9ZGqzTVw=
+		+IMOsnK7X4L4lhvq3D7jclDB4dE=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -71,7 +71,7 @@
 		</data>
 		<key>PlugIns/DostAtTests.xctest/DostAtTests</key>
 		<data>
-		1fkbAa1P3dE8TquKgd0cV6wkzl4=
+		2ptHsITHFsYWUpWp5P4/Y+k6ewY=
 		</data>
 		<key>PlugIns/DostAtTests.xctest/Info.plist</key>
 		<data>
@@ -88,22 +88,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ai7Kolz0zIbvVkFQnXIJF+N0FQY=
+			t1mLGrnhL0znpK0nVKQvBRK44AU=
 			</data>
 			<key>hash2</key>
 			<data>
-			p/MTTsQgMNJFG9THxbGKNa118ooo1I36Zhw04Pmrnck=
+			vgpKNcDyWd3x5kcz2GUupmLCBtdJX+O9WoylAimZTlw=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fSNXofbM9ZUdM37NQiDP6ivi7jA=
+			08mcVwrk+cz6v/bkh3Et7gRjSxo=
 			</data>
 			<key>hash2</key>
 			<data>
-			P56VfuLDPG2N4FgZoJ10XigyjCisR1XXZvIXZhdStbM=
+			EqKadk+pFbMc7xI7bWIYV93BjeamCCBjiAU0VvsBFIg=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
@@ -233,11 +233,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1fkbAa1P3dE8TquKgd0cV6wkzl4=
+			2ptHsITHFsYWUpWp5P4/Y+k6ewY=
 			</data>
 			<key>hash2</key>
 			<data>
-			UosXLPSn9Zzxs8Wz6ZsdnqVW7dfi6hHAmcr0ZnMOh2E=
+			yfR2dWdJV3Ofu+GNyqs4KXMqgMXEDo/XJGdeCV1Wbe4=
 			</data>
 		</dict>
 		<key>PlugIns/DostAtTests.xctest/Info.plist</key>

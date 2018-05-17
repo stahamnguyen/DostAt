@@ -12,7 +12,7 @@ class StartingScreen extends Component {
     }
 
     buttonOnPress = i => {
-        const screenId = ["DostAt.ProPlayersScreen", "DostAt.StartingScreen", ""]
+        const screenId = ["DostAt.ProPlayersScreen", "DostAt.StartingScreen", "DostAt.RankingScreen"]
 
         this.props.navigator.push({
             screen: screenId[i],
@@ -26,7 +26,7 @@ class StartingScreen extends Component {
         });
     }
 
-    titles = ['Account ID', 'Heroes', 'Rankings'];
+    titles = ['Steam ID', 'Heroes', 'Rankings'];
 
     buttons = this.titles.map((title, i) => {
 
@@ -48,17 +48,17 @@ class StartingScreen extends Component {
     render() {
         return (
             <ImageBackground
-                source={require("../assets/background.png")}
+                source={require("../assets/images/background.png")}
                 style={styles.container}
                 resizeMode="cover"
             >
                 <Image 
-                    source={require('../assets/logo.png')}
+                    source={require('../assets/images/logo.png')}
                     style={styles.logo}
                 />
                 {this.buttons}
             </ImageBackground>
-        )
+        );
     }
 }
 
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         width: 200,
-        height: 40,
+        height: 50,
         marginBottom: 30
     },
     button: {

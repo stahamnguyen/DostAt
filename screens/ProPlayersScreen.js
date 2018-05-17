@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, ImageBackground, TextInput, SafeAreaView, Text, Keyboard, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, ImageBackground, TextInput, SafeAreaView, Text, Keyboard, TouchableOpacity, Animated } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
 
 import PlayerCard from '../components/PlayerCard/PlayerCard';
+import BackButton from '../components/BackButton/BackButton';
 
 import { MEDIUM_GRAY, LIGHTEST_GRAY, BROWN, DARK_BROWN } from '../config/constant'
 
 class ProPlayersScreen extends Component {
 
     state = {
-        playerName: "",
-        image: "",
-        mmr: "",
-        rank: "",
-        note: ""
+        fetchData: {
+            playerName: "",
+            image: "",
+            mmr: "",
+            rank: ""
+        },
+        note: "Look up players' information by SteamID",
+        shakeAnim: new Animated.Value(0)
     }
 
     constructor(props) {
@@ -28,12 +32,46 @@ class ProPlayersScreen extends Component {
         fetch(url)
             .then(data => data.json())
             .then(parsedData => {
-                this.setState({
-                    playerName: parsedData.profile.name,
-                    image: parsedData.profile.avatarfull,
-                    mmr: parsedData.mmr_estimate.estimate,
-                    rank: parsedData.leaderboard_rank 
-                });
+                if(parsedData.profile) {
+                    this.setState({
+                        fetchData: {
+                            playerName: parsedData.profile.name,
+                            image: parsedData.profile.avatarfull,
+                            mmr: parsedData.mmr_estimate.estimate,
+                            rank: parsedData.leaderboard_rank 
+                        },
+                        note: "Look up players' information by SteamID"
+                    });
+                } else {
+                    this.setState({
+                        fetchData: {
+                            playerName: "",
+                            image: "",
+                            mmr: "",
+                            rank: "" 
+                        },
+                        note: "Cannot find player with input SteamID"
+                    });
+
+                    Animated.timing(this.state.shakeAnim, {
+                        toValue: 1,
+                        duration: 50,
+                        useNativeDriver: true
+                    }).start(() => {
+                        Animated.timing(this.state.shakeAnim, {
+                        toValue: -1,
+                        duration: 50,
+                        useNativeDriver: true
+                        }).start(() => {
+                            Animated.timing(this.state.shakeAnim, {
+                                toValue: 0,
+                                duration: 50,
+                                useNativeDriver: true
+                                }).start()
+                        });
+                    });
+                }
+                
             })
             .catch((e) => console.log(e));
     }
@@ -45,7 +83,7 @@ class ProPlayersScreen extends Component {
     render(){
         return (
             <ImageBackground
-                source={require("../assets/background.png")}
+                source={require("../assets/images/background.png")}
                 style={styles.container}
                 resizeMode="cover"
             >
@@ -61,21 +99,17 @@ class ProPlayersScreen extends Component {
                         autoFocus={true}
                         onSubmitEditing={(event) => this.fetchPlayerDataBySteamID(event.nativeEvent.text)}
                     />
-                    <Text style={styles.note}>Look up players' information by SteamID</Text>
-                    <PlayerCard data={this.state} />
-                    <TouchableOpacity
-                        style={styles.backButtonContainer}
-                        onPress={this.popToStartingScreen}
-                    >
-                        <LinearGradient
-                            colors={[DARK_BROWN, BROWN]}
-                            style={styles.backButton}
-                        >
-                            <Text style={styles.buttonTitle}>
-                                Back
-                            </Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
+                    <Text style={styles.note}>{this.state.note}</Text>
+                    <Animated.View
+                        style={{transform: [
+                            {rotate: this.state.shakeAnim.interpolate({
+                                inputRange: [-1, 1],
+                                outputRange: ['-3deg', '3deg']
+                            })}
+                        ]}}>
+                        <PlayerCard data={this.state.fetchData} />
+                    </Animated.View>
+                    <BackButton onPress={this.popToStartingScreen} />
                 </SafeAreaView>
             </ImageBackground>
         )
@@ -106,21 +140,6 @@ const styles = StyleSheet.create({
         width: 300,
         fontSize: 12,
         marginBottom: 40
-    },
-    backButtonContainer: {
-        padding: 10,
-        width: 200,
-        borderRadius: 2
-    },
-    backButton: {
-        padding: 10,
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 2
-    },
-    buttonTitle: {
-        color: 'white',
-        fontSize: 25
     }
 });
 

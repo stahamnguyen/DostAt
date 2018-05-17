@@ -7,23 +7,29 @@ import StatView from './StatView/StatView';
 
 import { MEDIUM_GRAY, DARK_GRAY, BLACK, DARKEST_GRAY, DARK_BROWN, BROWN } from '../../config/constant';
 
-const PlayerCard = (props) => {
+class PlayerCard extends Component {
 
-    return (
-        <LinearGradient
-            colors={[DARK_GRAY, DARKEST_GRAY ,BLACK]}
-            style={styles.container}
-        >
-            <Image
-                source={props.data.image !== "" ? {uri: props.data.image} : require("../../assets/defaultAvatar.png")}
-                style={styles.avatar}
-            />
-            <Text style={styles.playerName}>
-                {props.data.playerName}
-            </Text>
-            <StatView data={{ mmr: props.data.mmr, rank: props.data.rank }}/>
-        </LinearGradient>
-    );
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <LinearGradient
+                colors={[DARK_GRAY, DARKEST_GRAY ,BLACK]}
+                style={styles.container}
+            >
+                <Image
+                    source={this.props.data.image !== "" ? {uri: this.props.data.image} : require("../../assets/images/defaultAvatar.png")}
+                    style={styles.avatar}
+                />
+                <Text style={styles.playerName}>
+                    {this.props.data.playerName}
+                </Text>
+                <StatView data={{ mmr: this.props.data.mmr, rank: this.props.data.rank }}/>
+            </LinearGradient>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
