@@ -33,7 +33,9 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         flexDirection: "row",
-        justifyContent: "space-around"
+        justifyContent: "space-between",
+        paddingRight: 30,
+        paddingLeft: 30
     },
     text: {
         color: 'white',
