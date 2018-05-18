@@ -12,7 +12,7 @@ class StartingScreen extends Component {
     }
 
     buttonOnPress = i => {
-        const screenId = ["DostAt.ProPlayersScreen", "DostAt.StartingScreen", "DostAt.RankingScreen"]
+        const screenId = ["DostAt.ProPlayersScreen", "DostAt.RankingScreen", "DostAt.AuthenticatingScreen"]
 
         this.props.navigator.push({
             screen: screenId[i],
@@ -26,7 +26,7 @@ class StartingScreen extends Component {
         });
     }
 
-    titles = ['Steam ID', 'Heroes', 'Rankings'];
+    titles = ['Steam ID', 'Rankings', 'Authenticating'];
 
     buttons = this.titles.map((title, i) => {
 

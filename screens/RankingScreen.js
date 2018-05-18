@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, ImageBackground, StyleSheet, ActivityIndicator, Text, FlatList, SafeAreaView, Dimensions } from 'react-native';
 
-import { LIGHTEST_GRAY } from '../config/constant';
+import { LIGHTEST_GRAY, DARK_BROWN, BROWN } from '../config/constant';
 import TeamCell from '../components/TeamCell/TeamCell';
-import BackButton from '../components/BackButton/BackButton';
+import GradientButton from '../components/GradientButton/GradientButton';
 
 class RankingScreen extends Component {
     constructor(props) {
@@ -45,8 +45,10 @@ class RankingScreen extends Component {
                         />
                         :
                         <ActivityIndicator style={styles.activityIndicator}/>}
-                    <BackButton
+                    <GradientButton
                         styles={styles.marginSmall}
+                        colors={[DARK_BROWN, BROWN]}
+                        title="BACK"
                         onPress={this.popToStartingScreen} />
                 </ImageBackground>
             </SafeAreaView>

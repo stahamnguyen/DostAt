@@ -6,9 +6,13 @@ export const MEDIUM_GRAY = "#696969";
 export const LIGHT_GRAY = "#818181";
 export const LIGHTEST_GRAY = "#d1d1d1";
 export const BLACK = "#000";
+export const LIGHTEST_GRAY_BLUR = "rgba(209, 209, 209, 0.2)"
 
 export const DARK_BROWN = "#702016";
 export const BROWN = "#BC3F26";
+
+export const DARK_GREEN = "#34453E";
+export const LIGHT_GREEN ="#507753";
 
 export const SCREEN_WIDTH = Dimensions.get("window").width;
 export const SCREEN_HEIGHT = Dimensions.get("window").height;

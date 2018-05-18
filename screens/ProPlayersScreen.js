@@ -4,7 +4,7 @@ import { View, Image, StyleSheet, ImageBackground, TextInput, SafeAreaView, Text
 import LinearGradient from 'react-native-linear-gradient';
 
 import PlayerCard from '../components/PlayerCard/PlayerCard';
-import BackButton from '../components/BackButton/BackButton';
+import GradientButton from '../components/GradientButton/GradientButton';
 
 import { MEDIUM_GRAY, LIGHTEST_GRAY, BROWN, DARK_BROWN } from '../config/constant'
 
@@ -109,7 +109,11 @@ class ProPlayersScreen extends Component {
                         ]}}>
                         <PlayerCard data={this.state.fetchData} />
                     </Animated.View>
-                    <BackButton onPress={this.popToStartingScreen} />
+                    <GradientButton
+                        onPress={this.popToStartingScreen}
+                        colors={[DARK_BROWN, BROWN]}
+                        title="BACK"
+                    />
                 </SafeAreaView>
             </ImageBackground>
         )

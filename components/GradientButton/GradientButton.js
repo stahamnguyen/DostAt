@@ -5,7 +5,7 @@ import { DARK_BROWN, BROWN } from '../../config/constant';
 
 import LinearGradient from 'react-native-linear-gradient';
 
-const BackButton = (props) => {
+const GradientButton = (props) => {
     console.log(props)
     return(
         <TouchableOpacity
@@ -13,11 +13,11 @@ const BackButton = (props) => {
             onPress={props.onPress}
         >
             <LinearGradient
-                colors={[DARK_BROWN, BROWN]}
+                colors={props.colors}
                 style={styles.backButton}
             >
                 <Text style={styles.buttonTitle}>
-                    Back
+                    {props.title}
                 </Text>
             </LinearGradient>
         </TouchableOpacity>
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     },
     buttonTitle: {
         color: 'white',
-        fontSize: 25
+        fontSize: 20
     }
 });
 
-export default BackButton;
+export default GradientButton;
