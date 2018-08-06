@@ -30,12 +30,13 @@ class RankingScreen extends Component {
 
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <ImageBackground
-                    source={require("../assets/images/background.png")}
-                    style={styles.container}
-                    resizeMode="cover"
-                >
+            <ImageBackground
+                source={require("../assets/images/background.png")}
+                style={styles.container}
+                resizeMode="cover"
+            >
+                <SafeAreaView style={styles.container}>
+                    
                     {this.state.data ?
                         <FlatList 
                             data={this.state.data}
@@ -50,8 +51,8 @@ class RankingScreen extends Component {
                         colors={[DARK_BROWN, BROWN]}
                         title="BACK"
                         onPress={this.popToStartingScreen} />
-                </ImageBackground>
-            </SafeAreaView>
+                </SafeAreaView>
+            </ImageBackground>
         );
     }
 }
